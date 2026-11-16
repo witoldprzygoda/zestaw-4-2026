@@ -1,0 +1,42 @@
+---
+config:
+  theme: base
+  fontFamily: "Inter, DejaVu Sans, sans-serif"
+  themeCSS: "* { font-family: Inter, 'DejaVu Sans', sans-serif !important; }"
+  themeVariables:
+    fontSize: "15px"
+    primaryColor: "#F3F8FF"
+    primaryBorderColor: "#1F6FEB"
+    primaryTextColor: "#1F2328"
+    lineColor: "#57606A"
+    actorBkg: "#F3F8FF"
+    actorBorder: "#1F6FEB"
+    signalColor: "#57606A"
+    activationBkgColor: "#DDEBF7"
+    activationBorderColor: "#1F6FEB"
+    noteBkgColor: "#FFF2CC"
+    noteBorderColor: "#BF9000"
+  class:
+    hideEmptyMembersBox: true
+---
+sequenceDiagram
+    participant M as main()
+    participant FP as FabrykaPojazdow
+    Note over FP: definicja klasy FabrykaSamochodow<br/>wywołuje __init_subclass__(typ="samochod"),<br/>który zapisuje ją w _rejestr
+    M->>FP: utworz_fabryke("samochod", "Fabryka Samochodów Warszawa")
+    create participant FS as FabrykaSamochodow
+    FP->>FS: _rejestr["samochod"](nazwa)
+    FP-->>M: obiekt FabrykaSamochodow
+    M->>FS: stworz_pojazd("Fiat", 2023, liczba_drzwi=5)
+    activate FS
+    FS->>FS: sprawdz_rok(2023)
+    create participant S as Samochod
+    FS->>S: Samochod("Fiat", 2023, 5)
+    FS->>FS: _zwieksz_licznik()
+    FS-->>M: samochod
+    deactivate FS
+    M->>S: opis()
+    S-->>M: "Samochód Fiat (2023), drzwi: 5"
+    M->>S: predkosc = 50, del predkosc
+    M->>FS: ile_wyprodukowano()
+    FS-->>M: 1

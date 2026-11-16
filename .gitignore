@@ -1,0 +1,136 @@
+# ---------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg
+*.egg-info/
+.eggs/
+__pypackages__/
+
+# Srodowiska wirtualne i menedzery wersji
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+.python-version
+.pdm-python
+
+# Testy, pokrycie kodu, analizatory
+.pytest_cache/
+.cache/
+.tox/
+.nox/
+.hypothesis/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.cover
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------- IDE i edytory
+# PyCharm i inne narzedzia JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.fleet/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+.history/
+
+# Visual Studio
+.vs/
+
+# Spyder
+.spyproject/
+.spyderproject
+
+# Eclipse / PyDev
+.project
+.pydevproject
+.settings/
+
+# NetBeans
+nbproject/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*.swn
+.*.sw?
+Session.vim
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+.\#*
+.emacs.desktop*
+
+# Rope (refaktoryzacja)
+.ropeproject/
+
+# ---------------------------------------------------------------- macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+# Plik Icon konczy sie dwoma znakami \r
+Icon
+
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ---------------------------------------------------------------- Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+desktop.ini
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# ---------------------------------------------------------------- Linux
+.directory
+.Trash-*
+.nfs*
+
+# ---------------------------------------------------------------- Pozostale
+*.log
+*.tmp
+*.bak
+*.orig
+*.rej

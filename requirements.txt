@@ -1,0 +1,6 @@
+pytest
+requests
+pandas
+matplotlib
+schedule
+plum-dispatch

@@ -1,0 +1,67 @@
+---
+config:
+  theme: base
+  layout: elk
+  fontFamily: "Inter, DejaVu Sans, sans-serif"
+  themeCSS: "* { font-family: Inter, 'DejaVu Sans', sans-serif !important; }"
+  themeVariables:
+    fontSize: "15px"
+    primaryColor: "#F3F8FF"
+    primaryBorderColor: "#1F6FEB"
+    primaryTextColor: "#1F2328"
+    lineColor: "#57606A"
+    actorBkg: "#F3F8FF"
+    actorBorder: "#1F6FEB"
+    signalColor: "#57606A"
+    activationBkgColor: "#DDEBF7"
+    activationBorderColor: "#1F6FEB"
+    noteBkgColor: "#FFF2CC"
+    noteBorderColor: "#BF9000"
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+    direction TB
+    class Pojazd {
+        <<abstract>>
+        #str _model
+        #int _rok
+        #float _predkosc
+        +predkosc: float «property»
+        +opis()* str
+        +\_\_repr\_\_() str
+    }
+    class Samochod {
+        +int liczba_drzwi
+        +opis() str
+    }
+    class Autobus {
+        +int liczba_miejsc
+        +opis() str
+    }
+    class FabrykaPojazdow {
+        <<abstract>>
+        -dict _rejestr$
+        #str _nazwa
+        #int _liczba_wyprodukowanych
+        +nazwa: str «property»
+        +\_\_init_subclass\_\_(typ)$
+        +utworz_fabryke(typ, nazwa)$ FabrykaPojazdow
+        +dostepne_typy()$ list
+        +sprawdz_rok(rok)$ bool
+        +stworz_pojazd(model, rok, **parametry)* Pojazd
+        #_zwieksz_licznik()
+        +ile_wyprodukowano() int
+    }
+    class FabrykaSamochodow {
+        +stworz_pojazd(model, rok, liczba_drzwi) Samochod
+    }
+    class FabrykaAutobusow {
+        +stworz_pojazd(model, rok, liczba_miejsc) Autobus
+    }
+    Pojazd <|-- Samochod
+    Pojazd <|-- Autobus
+    FabrykaPojazdow <|-- FabrykaSamochodow : typ="samochod"
+    FabrykaPojazdow <|-- FabrykaAutobusow : typ="autobus"
+    FabrykaSamochodow ..> Samochod : tworzy
+    FabrykaAutobusow ..> Autobus : tworzy
